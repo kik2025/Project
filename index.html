@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Enhanced Interview Scheduling System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>International Student Internship Placement System</h1>
+        <p>Automated Interview Scheduling with AI Enhancement</p>
+    </header>
+
+    <div class="container">
+        <div class="process-flow">
+            <h2>Process Flow</h2>
+            <div class="steps">
+                <div class="step active" id="step1">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Data Input</h3>
+                        <p>Student & Company Availability</p>
+                    </div>
+                </div>
+                <div class="step" id="step2">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Matching</h3>
+                        <p>Find Optimal Time Slots</p>
+                    </div>
+                </div>
+                <div class="step" id="step3">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Scheduling</h3>
+                        <p>Create Interview Schedule</p>
+                    </div>
+                </div>
+                <div class="step" id="step4">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Notification</h3>
+                        <p>Send Automated Emails</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-panel">
+            <!-- Step 1: Data Input Panel -->
+            <div class="panel active" id="panel1">
+                <h2>Data Input</h2>
+                <p>The system uses availability data from students and companies to schedule interviews.</p>
+                
+                <div class="data-tables">
+                    <div class="data-table">
+                        <h3>Student Availability</h3>
+                        <table id="student-table">
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="data-table">
+                        <h3>Company Availability</h3>
+                        <table id="company-table">
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <button id="process-data-btn" class="btn">Process Data</button>
+            </div>
+
+            <!-- Step 2: Matching Panel -->
+            <div class="panel" id="panel2">
+                <h2>Matching Process</h2>
+                <p>The system is analyzing overlapping availability and finding optimal interview slots.</p>
+                
+                <div class="matching-animation">
+                    <div class="matching-progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <div id="matching-status">Analyzing student and company schedules...</div>
+                </div>
+                
+                <div class="matching-results" style="display: none;">
+                    <h3>Overlapping Availability Found</h3>
+                    <div id="availability-results"></div>
+                </div>
+                
+                <button id="schedule-btn" class="btn" disabled>Generate Schedule</button>
+            </div>
+
+            <!-- Step 3: Scheduling Panel -->
+            <div class="panel" id="panel3">
+                <h2>Interview Schedule</h2>
+                <p>The system has generated the optimal interview schedule:</p>
+                
+                <div class="schedule-results">
+                    <table id="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>Company</th>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Skills Match</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <button id="notify-btn" class="btn">Send Notifications</button>
+            </div>
+
+            <!-- Step 4: Notification Panel -->
+            <div class="panel" id="panel4">
+                <h2>Email Notifications</h2>
+                <p>Automatically generated emails to students and companies:</p>
+                
+                <div class="email-previews">
+                    <div class="email-preview" id="student-email">
+                        <h3>Student Email Preview</h3>
+                        <div class="email-content">
+                            <div class="email-header">
+                                <div>To: <span id="student-email-to"></span></div>
+                                <div>Subject: Your Upcoming Interview with <span id="student-email-company"></span></div>
+                            </div>
+                            <div class="email-body" id="student-email-body">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="email-preview" id="company-email">
+                        <h3>Company Email Preview</h3>
+                        <div class="email-content">
+                            <div class="email-header">
+                                <div>To: <span id="company-email-to"></span></div>
+                                <div>Subject: Upcoming Interview with <span id="company-email-student"></span></div>
+                            </div>
+                            <div class="email-body" id="company-email-body">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="notification-stats">
+                    <h3>Notification Statistics</h3>
+                    <div id="stats-content">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <button id="restart-btn" class="btn">Restart Demo</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>International Student Internship Placement System - Intelligent Automation Demo</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
